@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <title>Mini Documentation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://yarnpkg.com/en/package/normalize.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                $('.click').click(()=>{
+                    if($('#hide-sec').is(":visible")){
+                        alert("Great! A button was clicked!");
+                    }
+                    else{
+                        $('#hide-sec').show();
+                    }
+                })
+                $('.hide').click(()=>{
+                    $('#click-sec').hide();
+                    $('#hide-sec').hide();
+                })
+                $('.show').click(()=>{
+                    $('#click-sec').show();
+                    $('#hide-sec').show();
+                })
+                $('.toggle').click(()=>{
+                    $('#toggle-sec p').toggle();
+                })
+                $('.sldown').click(()=>{
+                    $('#slide-down-sec h2').slideDown();
+                })
+                $('.slup').click(()=>{
+                    $('#slide-down-sec h2').slideUp();
+                })
+                $('.sltog').click(()=>{
+                    $('#slide-tog-sec p').slideToggle();
+                })
+                $('.fade-in').click(()=>{
+                    $('#fade-in-sec span').fadeIn();
+                })
+                $('.fade-out').click(()=>{
+                    $('#fade-in-sec span').fadeOut();
+                })
+                $('.add-class').click(()=>{
+                    $('#add-class-sec p').addClass('bold-orange');
+                })
+                $('.before').click(()=>{
+                    $('#before-sec p').before("<p>I am the first paragraph</p>");
+                })
+                $('.after').click(()=>{
+                    $('#after-sec p').after("<p>I am the next paragraph</p>");
+                })
+                $('.append').click(()=>{
+                    $('#append-sec p').append("I'm appended!");
+                })
+                $('.html').click(()=>{
+                    var htmlString = $('#html-sec').html();
+                    $('#html-sec').append(htmlString);
+                })
+                $('.attr').click(()=>{
+                    $('input').change(()=>{
+                        $('#attr-sec p').append("checkbox is: "+ $("input").attr("checked") + " " + $("input").prop("checked"));
+                    })
+                    .change();
+                })
+                $('.val').click(()=>{
+                   const display = ()=>{
+                        var selected = $('#selection').val();
+
+                        $('#val-sec').append('Selected is: ' + selected);
+                    }
+                    $('#selection').change(display);
+                    display();
+                })
+                $('.text').click(()=>{
+                   var str = $('#text-sec').text();
+                   $('#text-sec p').after(str);
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <div id="container" class="col-lg-12">
+            <aside class="col-lg-3">
+                <a href="#click-sec">.click()</a>
+                <a href="#hide-sec">.hide()</a>
+                <a href="#show-sec">.show()</a>
+                <a href="#toggle-sec">.toggle()</a>
+                <a href="#slide-down-sec">.slideDown()</a>
+                <a href="#slide-up-sec">.slideUp()</a>
+                <a href="#slide-tog-sec">.slideToggle()</a>
+                <a href="#fade-in-sec">.fadeIn()</a>
+                <a href="#fade-out-sec">.fadeOut()</a>
+                <a href="#add-class-sec">.addClass()</a>
+                <a href="#before-sec">.before()</a>
+                <a href="#after-sec">.after()</a>
+                <a href="#append-sec">.append()</a>
+                <a href="#html-sec">.html()</a>
+                <a href="#attr-sec">.attr()</a>
+                <a href="#val-sec">.val()</a>
+                <a href="#text-sec">.text()</a>
+            </aside>
+            <main class="col-lg-9">
+                <h1>Qit's Mini JQuery Documentation</h1>
+                <section id="click-sec">
+                    <h2>Click</h2>
+                    <div class="col-lg-12">
+                        <button class="click col-lg-2">.click()</button>
+                        <p class="col-lg-10">Click the button to display an alert. Or if the next section (Hide) is hidden, it will display it.</p>
+                    </div>
+                </section>
+                <section id="hide-sec">
+                    <h2>Hide</h2>
+                    <div class="col-lg-12">
+                        <button class="hide col-lg-2">.hide()</button>
+                        <p class="col-lg-10">This will hide the "Click" and "Hide" sections.</p>
+                    </div>
+                </section>
+                <section id="show-sec">
+                    <h2>Show</h2>
+                    <div class="col-lg-12">
+                        <button class="show col-lg-2">.show()</button>
+                        <p class="col-lg-10">This will show the hidden "Click" and "Hide" sections.</p>
+                    </div>
+                </section>
+                <section id="toggle-sec">
+                    <h2>Toggle</h2>
+                    <div class="col-lg-12">
+                        <button class="toggle col-lg-2">.toggle()</button>
+                        <p class="col-lg-10">Clicking the button will toggle on/off this sentence without smooth animation.</p>
+                    </div>
+                </section>
+                <section id="slide-down-sec">
+                    <h2>Slide Down</h2>
+                    <div class="col-lg-12">
+                        <button class="sldown col-lg-2">.slideDown()</button>
+                        <p class="col-lg-10">When you click the [.slideUp()], use this to slide down the hidden title.</p>
+                    </div>
+                </section>
+                <section id="slide-up-sec">
+                    <h2>Slide Up</h2>
+                    <div class="col-lg-12">
+                        <button class="slup col-lg-2">.slideUp()</button>
+                        <p class="col-lg-10">Click this to hide the title of previous section's (Slide Down) title.</p>
+                    </div>
+                </section>
+                <section id="slide-tog-sec">
+                    <h2>Slide Toggle</h2>
+                    <div class="col-lg-12">
+                        <button class="sltog col-lg-2">.slideToggle()</button>
+                        <p class="col-lg-10">Clicking the button will smoothly toggle on/off this sentence.</p>
+                    </div>
+                </section>
+                <section id="fade-in-sec">
+                    <h2>Fade In</h2>
+                    <div class="col-lg-12">
+                        <button class="fade-in col-lg-2">.fadeIn()</button>
+                        <p class="col-lg-10">A new element will smoothly fade in after this sentence. <span>ALOHA!</span></p>
+                    </div>
+                </section>
+                <section id="fade-out-sec">
+                    <h2>Fade Out</h2>
+                    <div class="col-lg-12">
+                        <button class="fade-out col-lg-2">.fadeOut()</button>
+                        <p class="col-lg-10">The previously displayed element will smoothly fade out.</p>
+                    </div>
+                </section>
+                <section id="add-class-sec">
+                    <h2>Add Class</h2>
+                    <div class="col-lg-12">
+                        <button class="add-class col-lg-2">.addClass()</button>
+                        <p class="col-lg-10">Clicking the button will trigger adding of a class with styling to this sentence.</p>
+                    </div>
+                </section>
+                <section id="before-sec">
+                    <h2>Before</h2>
+                    <div class="col-lg-12">
+                        <button class="before col-lg-2">.before()</button>
+                        <p class="col-lg-10">A new p element will appear before this sentence.</p>
+                    </div>
+                </section>
+                <section id="after-sec">
+                    <h2>After</h2>
+                    <div class="col-lg-12">
+                        <button class="after col-lg-2">.after()</button>
+                        <p class="col-lg-10">A new p element will appear after this sentence.</p>
+                    </div>
+                </section>
+                <section id="append-sec">
+                    <h2>Append</h2>
+                    <div class="col-lg-12">
+                        <button class="append col-lg-2">.append()</button>
+                        <p class="col-lg-10">A sentence will be appended after this.</p>
+                    </div>
+                </section>
+                <section id="html-sec">
+                    <h2>HTML</h2>
+                    <div class="col-lg-12">
+                        <button class="html col-lg-2">.html()</button>
+                        <p class="col-lg-10">This will get the html codes of this section and append as another section.</p>
+                    </div>
+                </section>
+                <section id="attr-sec">
+                    <h2>Attr</h2>
+                    <div class="col-lg-12">
+                        <button class="attr col-lg-2">.attr()</button>
+                        <p class="col-lg-10">Click the button to disply the status. Check and uncheck the box get the attribute of the input element and display the boolean value everytime it changes. 
+                        Here's a checkbox: <input type="checkbox" checked>
+                        </p>
+                    </div>
+                </section>
+                <section id="val-sec">
+                    <h2>Val</h2>
+                    <div class="col-lg-12">
+                        <button class="val col-lg-2">.val()</button>
+                        <p class="col-lg-10">
+                            Click the button to see the results of selection. Everytime you select an item, the value will be displayed.
+                            <select id="selection">
+                                <option value="opt1" selected>option 1</option>
+                                <option value="opt2">option 2</option>
+                                <option value="opt3">option 3</option>
+                            </select>
+                        </p>
+                    </div>
+                </section>
+                <section id="text-sec">
+                    <h2>Text</h2>
+                    <div class="col-lg-12">
+                        <button class="text col-lg-2">.text()</button>
+                        <p class="col-lg-10">This will display the text value of this whole section and display after this sentence.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </body>
+</html>
